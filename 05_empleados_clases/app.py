@@ -8,8 +8,8 @@ tab_nuevo,tab_buscar,tab_departamentos=st.tabs(["Nuevo empleado","Buscar emplead
 with tab_nuevo:
     st.subheader("Alta de empleados")
     nombre=st.text_input("Nombre:")
-    edad=st.number_input("Edad:")
-    salario=st.number_input("Salario:")
+    edad=st.number_input("Edad:",value=0)
+    salario=st.number_input("Salario:",value=0)
     departamento=st.text_input("Departamento:")
     if st.button("Guardar"):
         empleado=ep.Empleado(nombre,edad,salario,departamento)
@@ -34,4 +34,5 @@ with tab_departamentos:
     departamento=st.text_input("Departamento: ",key="dep2")
     if st.button("Buscar empleados"):
         empleados=egestor.empleados_departamento(departamento)
+        empleados=[vars(e) for e in empleados]
         st.table(empleados)
