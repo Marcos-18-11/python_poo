@@ -51,6 +51,7 @@ class Cuenta_Movimientos(CuentaLimitada):
     
     
 cm=Cuenta_Movimientos(500,100)
+print(isinstance(cm,Cuenta))
 cm.extraer(20)
 cm.extraer(70)
 cm.ingresar(50)
